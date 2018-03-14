@@ -9,7 +9,7 @@ import java.awt.event.KeyEvent;
 
 public class Controller extends KeyAdapter implements ActionListener {
 
-    private View view;
+    private final View view;
 
     public Controller(View view) {
         this.view = view;

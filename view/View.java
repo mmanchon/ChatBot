@@ -29,7 +29,6 @@ public class View extends JFrame {
 
         txtChat = new JEditorPane("text/html", "");
         txtChat.setEditable(false);
-        txtChat.setFont(new Font("Calibri", 0, 12));
         editorKit = (HTMLEditorKit) txtChat.getEditorKit();
         document = (HTMLDocument) txtChat.getDocument();
 
@@ -74,8 +73,10 @@ public class View extends JFrame {
     }
 
     private boolean addText(String user, String content, String cssColor) {
-        String text = String.format("<p style='font-family: Calibri; margin: 0 3 0 3'><b style='color: %s'>%s: </b>%s</p>",
-                cssColor, user, content);
+        String text = String.format(
+                "<p style='font-family: Calibri; margin: 0 3 0 3'><b style='color: %s'>%s: </b>%s</p>",
+                cssColor, user, content
+        );
 
         try {
             editorKit.insertHTML(document, document.getLength(), text,0, 0, null);

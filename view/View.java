@@ -89,4 +89,10 @@ public class View extends JFrame {
         btnSend.addActionListener(al);
         txtInput.addKeyListener(kl);
     }
+
+    public void disableInput() {
+        txtChat.setEnabled(false);
+        txtInput.setEnabled(false);
+        btnSend.setEnabled(false);
+    }
 }

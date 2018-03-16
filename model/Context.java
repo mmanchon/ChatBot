@@ -4,16 +4,15 @@ import static model.Response.*;
 
 public enum Context {
 
-    FAREWELL(null, BYE, "bye", "farewell", "goodbye"), //el siguiente contexto no existe
-    //PROBLEM(FAREWELL, PROBLEM_ASSIST, "problem", "doesn't", "fail", "crash"),
-    //GREET(PROBLEM, SALUTE, "hello", "hi", "welcome", "greetings");
-    GREET(FAREWELL, SALUTE, "hello", "hi", "welcome", "greetings");
+    FAREWELL(null, BYE, new KeywordSet("bye", "farewell", "goodbye")),
+    PROBLEM(FAREWELL, PROBLEM_ASSIST, new KeywordSet("problem", "doesn't", "fail", "crash", "not", "work", "")),
+    GREET(PROBLEM, SALUTE, new KeywordSet("hello", "hi", "welcome", "greetings"));
 
-    private String[] keywords;
+    private KeywordSet keywords;
     private Response response;
     private Context next;
 
-    Context(Context next, Response response, String... keywords) {
+    Context(Context next, Response response, KeywordSet keywords) {
         this.response = response;
         this.next = next;
         this.keywords = keywords;
@@ -23,7 +22,11 @@ public enum Context {
         return next;
     }
 
-    public String[] getKeywords() {
+    public boolean hasKeyword(String word) {
+        return keywords.contains(word);
+    }
+
+    public KeywordSet getKeywords() {
         return keywords;
     }
 

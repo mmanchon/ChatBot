@@ -3,30 +3,28 @@ package model;
 public class Bot {
 
     private Context ctx;
+    private final KeywordMap map;
     private boolean wasFinal;
 
     public Bot() {
         ctx = Context.GREET;
+        map = new KeywordMap();
         wasFinal = false;
     }
 
     public String getResponseFor(String input) {
         String[] words = input.split("\\W");
         for (String word : words) {
-            for (String keyword : ctx.getKeywords()) {
-                if (word.compareToIgnoreCase(keyword) == 0) {
-                    return getAnswer(ctx);
-                }
+            if (ctx.hasKeyword(word.toLowerCase())) {
+                return getAnswer(ctx);
             }
         }
 
-        for (Context ctx : Context.values()) {
-            for (String word : words) {
-                for (String keyword : ctx.getKeywords()) {
-                    if (word.compareToIgnoreCase(keyword) == 0) {
-                        return getAnswer(ctx);
-                    }
-                }
+
+        for (String word : words) {
+            Context newContext = map.getContextFor(word);
+            if (newContext != null) {
+                return getAnswer(newContext);
             }
         }
 

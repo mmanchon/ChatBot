@@ -13,16 +13,12 @@ public class Controller extends KeyAdapter implements ActionListener {
 
     private final View view;
     private final Bot bot;
-    private final ThreadResponse timer;
     private String userInput;
 
 
     public Controller(View view) {
         this.view = view;
         bot = new Bot();
-        this.timer = new ThreadResponse(this);
-        timer.start();
-
     }
 
     @Override
@@ -39,7 +35,7 @@ public class Controller extends KeyAdapter implements ActionListener {
             this.userInput = view.getUserInput();
             view.addUserInput(userInput);
             view.clearUserInput();
-            timer.setRunning(true);
+            new ThreadResponse(this).start();
         }
     }
 
@@ -47,7 +43,5 @@ public class Controller extends KeyAdapter implements ActionListener {
         view.addBotResponse(bot.getResponseFor(userInput));
         bot.changeContext();
         if (bot.wasFinal()) view.disableInput();
-        timer.setRunning(false);
-
     }
 }

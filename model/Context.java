@@ -4,8 +4,19 @@ import static model.Response.*;
 
 public enum Context {
 
-    FAREWELL(null, BYE, new KeywordSet("bye", "farewell", "goodbye")),
-    PROBLEM(FAREWELL, PROBLEM_ASSIST, new KeywordSet("problem", "doesn't", "fail", "crash", "not", "work", "")),
+    FAREWELL(null, BYE, new KeywordSet("bye", "farewell", "goodbye", "okey", "Okey", "Thank", "thank")),
+    KEYBOARD_PROBLEMS(FAREWELL, KEYBOARD_SOLUTIONS, new KeywordSet("keyboard", "Keyboard")),
+    MOUSE_PROBLEMS(FAREWELL, MOUSE_SOLUTIONS, new KeywordSet("Mouse", "mouse")),
+    BATTERY_SOLUTION(FAREWELL, BATTERY_SOLUTIONS , new KeywordSet("battery","turn","on","off")),
+    RAM_PROBLEMS(FAREWELL,RAM_SOLUTIONS,new KeywordSet("RAM", "ram")),
+    SCREEN_PROBLEMS(FAREWELL, SCREEN_SOLUTIONS, new KeywordSet("screen", "Screen")),
+    MEMORY_PROBLEMS(FAREWELL, MEMORY_SOLUTIONS, new KeywordSet("HDD", "SDD","disc","memory")),
+    INTERNAL_COMPUTER(BATTERY_SOLUTION,null,new KeywordSet()),
+    MAC(INTERNAL_COMPUTER, APPLE, new KeywordSet("mac", "iphone", "apple")),
+    WINDOWS(INTERNAL_COMPUTER, WINDOWS_RESPONSE, new KeywordSet("windows","acer","dell")),
+    LINUX(INTERNAL_COMPUTER, FREE_SOFTWARE, new KeywordSet("linux","server","connection")),
+    IMPATIENT(INTERNAL_COMPUTER, PATIENT, new KeywordSet("done","ready")),
+    PROBLEM(INTERNAL_COMPUTER, PROBLEM_ASSIST, new KeywordSet("problem", "software", "fail", "crash", "not", "work", "help")),
     GREET(PROBLEM, SALUTE, new KeywordSet("hello", "hi", "welcome", "greetings"));
 
     private KeywordSet keywords;

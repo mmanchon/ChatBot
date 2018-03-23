@@ -9,6 +9,10 @@ public enum Context {
     MOUSE_PROBLEMS(FAREWELL, MOUSE_SOLUTIONS, new KeywordSet("Mouse", "mouse")),
     BATTERY_SOLUTION(FAREWELL, BATTERY_SOLUTIONS , new KeywordSet("battery","turn","on","off")),
     RAM_PROBLEMS(FAREWELL,RAM_SOLUTIONS,new KeywordSet("RAM", "ram")),
+    ACCPET(FAREWELL,ACCEPTANCE,new KeywordSet("Okey", "okey","Perfect", "perfect")),
+    P_RESPONSE(FAREWELL, PRESPONSE, new KeywordSet("yes","Yes")),
+    N_RESPONSE(FAREWELL,NRESPONSE, new KeywordSet("no","No")),
+    GRATIUDE(FAREWELL, THANKS, new KeywordSet("thanks", "thank")),
     SCREEN_PROBLEMS(FAREWELL, SCREEN_SOLUTIONS, new KeywordSet("screen", "Screen")),
     MEMORY_PROBLEMS(FAREWELL, MEMORY_SOLUTIONS, new KeywordSet("HDD", "SDD","disc","memory")),
     INTERNAL_COMPUTER(BATTERY_SOLUTION,null,new KeywordSet()),
@@ -16,7 +20,7 @@ public enum Context {
     WINDOWS(INTERNAL_COMPUTER, WINDOWS_RESPONSE, new KeywordSet("windows","acer","dell")),
     LINUX(INTERNAL_COMPUTER, FREE_SOFTWARE, new KeywordSet("linux","server","connection")),
     IMPATIENT(INTERNAL_COMPUTER, PATIENT, new KeywordSet("done","ready")),
-    PROBLEM(INTERNAL_COMPUTER, PROBLEM_ASSIST, new KeywordSet("problem", "software", "fail", "crash", "not", "work", "help")),
+    PROBLEM(INTERNAL_COMPUTER, PROBLEM_ASSIST, new KeywordSet("problem","problems", "software", "fails","fail", "crash","crashes", "not", "work", "help")),
     GREET(PROBLEM, SALUTE, new KeywordSet("hello", "hi", "welcome", "greetings"));
 
     private KeywordSet keywords;

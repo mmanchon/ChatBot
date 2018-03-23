@@ -17,6 +17,10 @@ public enum  Response {
     BATTERY_SOLUTIONS("Try to plug it until it's charged", "Change the charger adapter.", "Try using GNU/Linux instead."),
     MEMORY_SOLUTIONS("Extract it and try to connect it via adapter."),
     KEYBOARD_SOLUTIONS("Probably the connection with the motherboard isn't well."),
+    ACCEPTANCE("Okey, let me know if it works!"),
+    PRESPONSE("Great! Im good at my job :)"),
+    NRESPONSE("Humm... tell me again what is the problem and let me see if something comes to my mind"),
+    THANKS("You're Welcome!","I am here to help!"),
     MOUSE_SOLUTIONS("If it works via USB try to plug it in other port, if not, change the batteries.");
 
     private String[] responses;

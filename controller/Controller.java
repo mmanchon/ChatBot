@@ -36,6 +36,7 @@ public class Controller extends KeyAdapter implements ActionListener {
             view.addUserInput(userInput);
             view.clearUserInput();
             new ThreadResponse(this).start();
+            //updateBotChat();
         }
     }
 

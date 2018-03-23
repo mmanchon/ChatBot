@@ -33,8 +33,11 @@ public class Bot {
 
     private String getAnswer(Context ctx) {
         if (ctx.equals(Context.FAREWELL)) wasFinal = true;
-        this.ctx = ctx.getNext();
         return ctx.getResponse();
+    }
+
+    public void changeContext(){
+        this.ctx = ctx.getNext();
     }
 
     public boolean wasFinal() {

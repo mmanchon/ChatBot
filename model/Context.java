@@ -4,7 +4,7 @@ import static model.Response.*;
 
 public enum Context {
 
-    FAREWELL(null, BYE, new KeywordSet("bye", "farewell", "goodbye", "okey", "Okey", "Thank", "thank")),
+    FAREWELL(null, BYE, new KeywordSet("bye", "farewell", "goodbye","Thank", "thank", "Thanks", "thanks")),
     KEYBOARD_PROBLEMS(FAREWELL, KEYBOARD_SOLUTIONS, new KeywordSet("keyboard", "Keyboard")),
     MOUSE_PROBLEMS(FAREWELL, MOUSE_SOLUTIONS, new KeywordSet("Mouse", "mouse")),
     BATTERY_SOLUTION(FAREWELL, BATTERY_SOLUTIONS , new KeywordSet("battery","turn","on","off")),

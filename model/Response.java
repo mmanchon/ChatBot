@@ -6,7 +6,7 @@ public enum  Response {
 
     SALUTE("Hello! What is the problem?", "Hi, how may I assist you?"),
     PROBLEM_ASSIST("Okey, can you describe which problem do you have?", "You have come to the right place! Tell me what happens","Which computer brand do you have?"),
-    BYE("See you later!", "Bye bye!"),
+    BYE("See you later!", "Bye bye!", "Let me know if you need anything else"),
     UNKNOWN("Sorry, I didn't understand what you said.", "I can't understand this.", "I don't know what you mean.", "Try explaining it with other words please."),
     APPLE("What is the problem with your MAC?","You can't play videogames?","Is too expensive?"),
     FREE_SOFTWARE("Let me check what stackoverflow says","Maybe you need a tutorial to learn how to use it :)"),

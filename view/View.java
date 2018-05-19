@@ -16,9 +16,10 @@ public class View extends JFrame {
     private final JTextField txtInput;
     private final HTMLEditorKit editorKit;
     private final HTMLDocument document;
+    private final JScrollPane scrollPane;
 
     public View() {
-        setTitle("Chatbot");
+        setTitle("Chatbot: Reservation Manager");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new Dimension(400, 298));
         setLocationRelativeTo(null);
@@ -32,7 +33,7 @@ public class View extends JFrame {
         editorKit = (HTMLEditorKit) txtChat.getEditorKit();
         document = (HTMLDocument) txtChat.getDocument();
 
-        final JScrollPane scrollPane = new JScrollPane(txtChat);
+        scrollPane = new JScrollPane(txtChat);
         content.add(scrollPane, BorderLayout.CENTER);
 
         final JPanel southPanel = new JPanel(new BorderLayout());
@@ -69,17 +70,18 @@ public class View extends JFrame {
     }
 
     public boolean addBotResponse(String content) {
-        return addText("Bot", content, "red");
+        return addText("Bot", content, "green");
     }
 
-    private boolean addText(String user, String content, String cssColor) {
+    public boolean addText(String user, String content, String cssColor) {
         String text = String.format(
-                "<p style='font-family: Calibri; margin: 0 3 0 3'><b style='color: %s'>%s: </b>%s</p>",
+                "<p style='font-family: Calibri; margin: 0 3 0 3; font-size: 12px'><b style='color: %s'>%s: </b>%s</p>",
                 cssColor, user, content
         );
 
         try {
             editorKit.insertHTML(document, document.getLength(), text,0, 0, null);
+            txtChat.setCaretPosition(txtChat.getDocument().getLength());
             return true;
         } catch (Exception e) {
             return false;

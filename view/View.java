@@ -21,7 +21,7 @@ public class View extends JFrame {
     public View() {
         setTitle("Chatbot: Reservation Manager");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new Dimension(400, 298));
+        setMinimumSize(new Dimension(700, 500));
         setLocationRelativeTo(null);
 
         final JPanel content = (JPanel) getContentPane();
@@ -79,6 +79,19 @@ public class View extends JFrame {
                 cssColor, user, content
         );
 
+        return addText(text);
+    }
+
+    public boolean addTabbedText(String content) {
+        String text = String.format(
+                "<p style='font-family: Calibri; margin: 0 3 0 3; font-size: 12px'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+                        + "&bull;&nbsp;%s</p>", content
+        );
+
+        return addText(text);
+    }
+
+    private boolean addText(String text) {
         try {
             editorKit.insertHTML(document, document.getLength(), text,0, 0, null);
             txtChat.setCaretPosition(txtChat.getDocument().getLength());
@@ -96,6 +109,10 @@ public class View extends JFrame {
     public void disableInput() {
         txtChat.setEnabled(false);
         txtInput.setEnabled(false);
-        btnSend.setEnabled(false);
+        setButtonEnabled(false);
+    }
+
+    public void setButtonEnabled(boolean b) {
+        btnSend.setEnabled(b);
     }
 }

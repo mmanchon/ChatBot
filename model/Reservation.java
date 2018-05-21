@@ -26,6 +26,6 @@ public class Reservation {
 
     @Override
     public String toString() {
-        return String.format("Table for %d guest(s), at %s", quantity, timestamp);
+        return String.format("Table for %d guest%c, at %s", quantity, quantity == 1 ? '\0' : 's',timestamp);
     }
 }

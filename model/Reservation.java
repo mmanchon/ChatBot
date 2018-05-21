@@ -9,7 +9,7 @@ public class Reservation {
     public Reservation(String name, int quantity, String timestamp) {
         this.name = name;
         this.quantity = quantity;
-        this.timestamp = timestamp;
+        this.timestamp = timestamp.substring(0, timestamp.length() - 5);
     }
 
     public String getName() {

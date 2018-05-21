@@ -14,7 +14,7 @@ public class DBDriver {
 
     public DBDriver() {
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/chatbot?user=sbc&password=sbc&useSSL=false");
+            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/chatbot?user=sbc&password=sbc&useSSL=false&serverTimezone=UTC");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -56,7 +56,7 @@ public class DBDriver {
             ResultSet set = stmt.executeQuery();
             List<Reservation> out = new ArrayList<>();
             while (set.next()) {
-                out.add(new Reservation(set.getString(0), set.getInt(1), set.getString(2)));
+                out.add(new Reservation(set.getString(1), set.getInt(2), set.getString(3)));
             }
 
             return out;
